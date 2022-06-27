@@ -27,16 +27,6 @@ def get_db():
     finally:
         db.close()
 
-# @app.post("/face-image/", response_model = schemas.FaceImageCreate)
-# async def create_image(faceimage: str, db:Session=Depends(get_db)):
-#     rps = crud.create_faceimage(db=db, faceimage=faceimage)
-#     return rps
-
-# @app.get("/face-image/{id}", response_model = schemas.FaceImageCreate)
-# async def read_image(id: int, db: Session = Depends(get_db)):
-#     db_image = crud.get_faceimage(db = db, user_id = id)
-#     return db_image
-
 @app.post("/face-image/", response_model = schemas.FaceImageCreate)
 async def create_image(faceimage: str, db:Session=Depends(get_db)):
     rps = crud.create_faceimage(db=db, faceimage=faceimage)
