@@ -36,10 +36,6 @@ async def create_image(faceimage: str, db:Session=Depends(get_db)):
 async def create_info(user_id : int, user_gender: str, user_age : int, db: Session = Depends(get_db)):
     return crud.create_info(db = db, user_id=user_id, user_gender=user_gender, user_age=user_age)
 
-@app.post("/recommendation/", response_model = schemas.AI_OutPut)
-async def create_aioutput(output : Ai_Output):
-    pass
-
 @app.post("/ad/", response_model = schemas.AI_OutPut)
 async def create_aioutput(output : Ai_Output):
     return output
